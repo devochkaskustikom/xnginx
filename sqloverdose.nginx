@@ -1,0 +1,17 @@
+server {
+    listen 35433;
+    server_name 217.197.117.41;
+
+
+    access_log /opt/overdosemedia/backapi/database/sqliteBrowser/access_log.log;
+	error_log /opt/overdosemedia/backapi/database/sqliteBrowser/error_log.log warn;
+
+	root /opt/overdosemedia/backapi/database/sqliteBrowser;
+	index iamgroot.txt;
+	
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+	}
+    
+}
